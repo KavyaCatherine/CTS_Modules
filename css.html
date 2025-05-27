@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Local Community Event Portal</title>
+
+  <!-- Exercise 1: Embedded CSS -->
+  <style>
+    /* =====================
+       CSS3 Exercises: styles.css simulation
+       ===================== */
+
+    /* Exercise 2: CSS Syntax and Comments */
+    /* Universal Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling with background image + fallback */
+    body {
+      background-color: #f4f4f9;
+      background-image: url('https://via.placeholder.com/150');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Roboto', sans-serif;
+      padding: 20px;
+    }
+
+    /* Exercise 3: Selectors */
+    h2 {
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    #mainHeader {
+      text-align: center;
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .eventCard {
+      background-color: white;
+      border: 2px solid #007BFF;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h3, p {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    /* Exercise 4: Gradients */
+    .section-header {
+      background: linear-gradient(to right, #007BFF, #00c6ff);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+
+    /* Exercise 5: Typography */
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .eventDescription {
+      text-align: justify;
+      text-transform: capitalize;
+      letter-spacing: 0.5px;
+      line-height: 1.6;
+    }
+
+    /* Exercise 6: Link and List Styling */
+    a:link {
+      color: #007BFF;
+    }
+
+    a:visited {
+      color: #0056b3;
+    }
+
+    a:hover {
+      color: #ff6347;
+    }
+
+    a:active {
+      color: red;
+    }
+
+    ul {
+      list-style-type: square;
+      list-style-position: inside;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    nav li {
+      margin: 5px 0;
+    }
+
+    /* Exercise 7: Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #007BFF;
+      padding: 12px;
+      text-align: center;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    /* Exercise 8: Box Model & Layout */
+    .eventCard {
+      outline: 2px solid #000;
+    }
+
+    .highlight {
+      visibility: hidden;
+    }
+
+    .gone {
+      display: none;
+    }
+
+    /* Exercise 9: Multi-column layout */
+    .news-article {
+      column-count: 2;
+      column-gap: 30px;
+      column-rule: 1px solid gray;
+      margin: 20px 0;
+    }
+
+    /* Exercise 10: Responsive Design */
+    @media screen and (max-width: 768px) {
+      nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .cta-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+
+      .eventCard {
+        width: 100%;
+      }
+    }
+
+    /* CTA Button */
+    .cta-button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .cta-button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      margin-top: 30px;
+    }
+  </style>
+
+  <!-- Exercise 5: Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Exercise 1: Inline style -->
+  <h1 style="color: red;">Welcome to the Local Community Event Portal</h1>
+
+  <!-- Exercise 3: ID Selector -->
+  <header id="mainHeader">
+    <h2>Upcoming Events</h2>
+  </header>
+
+  <!-- Exercise 3 & 8: Event Cards -->
+  <div class="eventCard">
+    <h3>Music Festival</h3>
+    <p class="eventDescription">enjoy an evening of live music by local artists</p>
+  </div>
+
+  <div class="eventCard">
+    <h3>Community Clean-up</h3>
+    <p class="eventDescription">join volunteers to make our town beautiful again</p>
+  </div>
+
+  <!-- Exercise 5 & 10: CTA -->
+  <button class="cta-button">Register Now</button>
+
+  <!-- Exercise 6: Link Styling -->
+  <footer>
+    <a href="#">About</a> |
+    <a href="#">Contact</a> |
+    <a href="#">Privacy Policy</a>
+  </footer>
+
+  <!-- Exercise 6: List Styling -->
+  <nav>
+    <ul>
+      <li>Home</li>
+      <li>Events</li>
+      <li>News</li>
+    </ul>
+  </nav>
+
+  <!-- Exercise 7: Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Yoga Class</td>
+        <td>June 12</td>
+        <td>Central Park</td>
+      </tr>
+      <tr>
+        <td>Farmers Market</td>
+        <td>June 15</td>
+        <td>Main Street</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Exercise 9: Multi-column -->
+  <div class="news-article">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent malesuada nulla non sem fermentum, eget cursus erat condimentum. Sed at fringilla sapien.</p>
+    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer non quam id nisl luctus malesuada nec nec diam.</p>
+  </div>
+</body>
+</html>
