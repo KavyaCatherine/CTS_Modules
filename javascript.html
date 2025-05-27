@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Header styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            float: left;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .main {
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .event-card {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                text-align: left;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to the Community Event Portal</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div id="welcomeBanner">
+            <p>Welcome back, <span class="highlight">John Doe</span>! Check out upcoming events!</p>
+        </div>
+
+        <!-- Event List -->
+        <section id="events">
+            <h2>Upcoming Events</h2>
+            <div id="eventList">
+                <!-- Event cards will be dynamically populated by JS -->
+            </div>
+
+            <!-- Event Registration Form -->
+            <h3>Register for an Event</h3>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="eventType">Event Type:</label>
+                    <select id="eventType" name="eventType" required>
+                        <option value="">Choose an event type</option>
+                        <option value="Music">Music</option>
+                        <option value="Workshop">Workshop</option>
+                        <option value="Community">Community</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Additional message"></textarea>
+                </div>
+                <button type="submit">Submit Registration</button>
+            </form>
+            <output id="confirmationMessage"></output>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact us: info@communityevents.com</p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="main.js"></script>
+
+    <script>
+        // Event registration and dynamic content using JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Welcome to the Community Portal');
+            alert('Page fully loaded');
+
+            // Event data
+            const events = [
+                { name: "Music Festival", date: "2025-06-15", seats: 50 },
+                { name: "Cooking Workshop", date: "2025-07-20", seats: 0 },
+                { name: "Community Clean-up", date: "2025-08-10", seats: 30 }
+            ];
+
+            // Display events
+            const eventList = document.getElementById('eventList');
+            events.forEach(event => {
+                const eventCard = document.createElement('div');
+                eventCard.classList.add('event-card');
+                eventCard.innerHTML = `
+                    <h4>${event.name}</h4>
+                    <p>Date: ${event.date}</p>
+                    <p>Seats available: ${event.seats}</p>
+                    <button class="registerBtn">Register</button>
+                `;
+                eventList.appendChild(eventCard);
+
+                // Event Registration
+                const registerBtn = eventCard.querySelector('.registerBtn');
+                registerBtn.addEventListener('click', function() {
+                    if (event.seats > 0) {
+                        event.seats--;
+                        alert(`${event.name} registration successful!`);
+                    } else {
+                        alert(`Sorry, ${event.name} is fully booked.`);
+                    }
+                    eventCard.querySelector('p').innerText = `Seats available: ${event.seats}`;
+                });
+            });
+
+            // Registration form
+            const registrationForm = document.getElementById('registrationForm');
+            registrationForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const eventType = document.getElementById('eventType').value;
+                const message = document.getElementById('message').value;
+
+                if (name && email && eventType) {
+                    document.getElementById('confirmationMessage').innerText = `Thank you ${name}, your registration for the ${eventType} event is successful.`;
+                } else {
+                    document.getElementById('confirmationMessage').innerText = 'Please fill in all required fields.';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
